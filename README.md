@@ -9,7 +9,7 @@ A telegram donate bot.
 Made with Python3
 (C) @PredatorHackerzZ
 Copyright permission under MIT License
-License -> https://github.com/DX-Bots/Google-Search-Bot/tree/main
+License -> https://github.com/PredatorHackerzZ/Donate/tree/main
 ```
 
 ---

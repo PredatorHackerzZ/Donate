@@ -1,2 +1,2 @@
-# Donation-Bot
-Bot For Donate Us.
+# Donate
+Bot For Donating Us. 

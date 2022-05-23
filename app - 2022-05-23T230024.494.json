@@ -1,0 +1,27 @@
+{
+    "name": "Donate",
+    "description": "A Donation bot",
+    "repository": "https://github.com/PredatorHackerzZ/Donate",
+    " logo": "https://telegra.ph/file/c9aea1d0e88f6592726a3.jpg",
+    "keywords": [
+        "telegram",
+        "donate",
+        "bot"
+    ],
+    "env": {
+        "BOT_TOKEN": {
+            "description": "TeleGram Bot token from @Botfather"
+        },
+        "API_ID": {
+            "description": "TeleGram API_ID from https://my.telegram.org/apps"
+        },
+        "API_HASH": {
+            "description": "TeleGram API_HASH from https://my.telegram.org/apps"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ]
+}

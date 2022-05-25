@@ -16,6 +16,7 @@ Bot = Client(
 
 
 START_TEXT = """Hey! {}
+
 ☞ Very Happy to Know that You are Donating Us.
 
 Thanks For Using [Our Bots](https://t.me/+KYLCdC4XfcdmNGVl).

@@ -97,7 +97,7 @@ async def cb_handler(bot, update):
         )
     elif update.data == "upidata":
         await update.message.edit_text(
-            text=DONATE_TEXT,
+            text=DONATE_TEXT.format(update.from_user.mention),
             reply_markup=UPI_BUTTONS,
             disable_web_page_preview=True
         )

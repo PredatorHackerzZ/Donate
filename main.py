@@ -15,16 +15,16 @@ Bot = Client(
 )
 
 
-START_TEXT = """Hey! {}
+START_TEXT = """Hᴇʏ! {}
 
-☞ Very Happy to Know that You are Donating Us.
+☞ Vᴇʀʏ Hᴀᴘᴘʏ ᴛᴏ Kɴᴏᴡ Tʜᴀᴛ Yᴏᴜ ᴀʀᴇ Dᴏɴᴀᴛɪɴɢ Uꜱ.
 
-Thanks For Using [Our Bots](https://t.me/+KYLCdC4XfcdmNGVl).
+Tʜᴀɴᴋꜱ Fᴏʀ Uꜱɪɴɢ [Oᴜʀ Bᴏᴛꜱ](https://t.me/+KYLCdC4XfcdmNGVl).
 
-Made with love For [You](tg://settings)"""
+Mᴀᴅᴇ Wɪᴛʜ Lᴏᴠᴇ Fᴏʀ [Yᴏᴜ](tg://settings)"""
 
 DONATE_BUTTONS = [
-    InlineKeyboardButton(text='Donate 💸', callback_data='donateme'
+    InlineKeyboardButton(text='Donate 💳', callback_data='donateme'
     )
 ]
 

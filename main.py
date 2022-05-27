@@ -24,23 +24,23 @@ Tʜᴀɴᴋꜱ Fᴏʀ Uꜱɪɴɢ [Oᴜʀ Bᴏᴛꜱ](https://t.me/+KYLCdC4XfcdmN
 Mᴀᴅᴇ Wɪᴛʜ Lᴏᴠᴇ Fᴏʀ [Yᴏᴜ](tg://settings)"""
 
 DONATE_BUTTONS = [
-    InlineKeyboardButton(text='Donate 💳', callback_data='donateme'
+    InlineKeyboardButton(text='Dᴏɴᴀᴛᴇ 💳', callback_data='donateme'
     )
 ]
 
-DONATE_TEXT = """Hey! {}
-You Can Donate Us Using UPI. 
+DONATE_TEXT = """Hᴇʏ! {}
+Yᴏᴜ Cᴀɴ Dᴏɴᴀᴛᴇ Uꜱ Uꜱɪɴɢ UPI.
 
 PayTm/PhonePe/GooglePay - `sk7062563@okhdfcbank`
 
-Or Contact Us :- [Abhishek Kumar](https://telegram.me/HelpLessBoi). """
+Oʀ Contact Uꜱ :- [Abhishek Kumar](https://telegram.me/HelpLessBoi). """
 
 BUTTON_TEXT = """ Click the Below Buttons To Donate Us. """
 
 UPI_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(" Back", callback_data="back"),
+            InlineKeyboardButton(" Back ", callback_data="back"),
             InlineKeyboardButton(" PayPal ", url="https://paypal.me/AbhishekKumarIN47")
         ],
         [
@@ -77,7 +77,7 @@ async def filter(bot, update):
         text="Click the Following Button to Donate Us.",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="UPI", callback_data="upidata"),
+                [InlineKeyboardButton(text=" UPI ", callback_data="upidata"),
                  InlineKeyboardButton(text="PayPal", url="https://paypal.me/AbhishekKumarIN47")]
             ],
             [
@@ -104,7 +104,7 @@ async def cb_handler(bot, update):
         )
     elif update.data == "back":
         await update.message.edit_text(
-            text=BUTTON_TEXT,
+            text=BUTTON_TEXT.format(update.from_user.mention),
             reply_markup=PAY_BUTTONS,
             disable_web_page_preview=True
         )

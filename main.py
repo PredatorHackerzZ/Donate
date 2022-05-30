@@ -24,7 +24,9 @@ Tʜᴀɴᴋꜱ Fᴏʀ Uꜱɪɴɢ [Oᴜʀ Bᴏᴛꜱ](https://t.me/+KYLCdC4XfcdmN
 Mᴀᴅᴇ Wɪᴛʜ Lᴏᴠᴇ Fᴏʀ [Yᴏᴜ](tg://settings)"""
 
 DONATE_BUTTONS = [
-    InlineKeyboardButton(text='Dᴏɴᴀᴛᴇ 💳', callback_data='donateme'
+    InlineKeyboardButton(
+        text='Dᴏɴᴀᴛᴇ 💳',
+        callback_data='donateme'
     )
 ]
 

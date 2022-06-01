@@ -74,18 +74,19 @@ async def start(bot, update):
 
 
 @Bot.on_message(filters.private & filters.command(["donate"]))
-async def filter(bot, update):
+async def donate(bot, update):
     await update.reply_text(
         text="Click the Following Button to Donate Us.",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton(text=" UPI ", callback_data="upidata"),
-                 InlineKeyboardButton(text="PayPal", url="https://paypal.me/AbhishekKumarIN47")]
-            ],
-            [
-                [InlineKeyboardButton(text="😥 Close", callback_data="close")]
-            ]
-        ),
+        reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
+        disable_web_page_preview=True,
+        quote=True
+    )
+
+@Bot.on_message(filters.private & filters.command(["bots"]))
+async def bots(bot, update):
+    await update.reply_text(
+        text="https://t.me/+t1ko_FOJxhFiOThl",
+        reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
         disable_web_page_preview=True,
         quote=True
     )

@@ -35,7 +35,7 @@ Yᴏᴜ Cᴀɴ Dᴏɴᴀᴛᴇ Uꜱ Uꜱɪɴɢ UPI.
 
 PayTm/PhonePe/GooglePay - `sk7062563@okhdfcbank`
 
-Oʀ Contact Uꜱ :- [Abhishek Kumar](https://telegram.me/HelpLessBoi). """
+Oʀ Cᴏɴᴛᴀcᴛ Uꜱ :- [ツAʙʜɪsʜᴇᴋ Kᴜᴍᴀʀ 🇮🇳](https://telegram.me/HelpLessBoi). """
 
 BUTTON_TEXT = """ Click the Below Buttons To Donate Us. """
 

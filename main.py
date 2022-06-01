@@ -5,6 +5,11 @@ import requests
 from requests.utils import requote_uri
 from pyrogram import Client, filters
 from pyrogram.types import *
+from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup
+from pyrogram.types import InlineQueryResultPhoto
+from pyrogram.types import InputTextMessageContent
+from pyrogram.types import InlineQueryResultArticle
 
 
 Bot = Client(
@@ -94,13 +99,13 @@ async def bots(bot, update):
 @Bot.on_inline_query()
 async def answerX(bot, update):
 
-    answers = []
-    answers.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
+    answer = []
+    answer.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
     input_message_content=InputTextMessageContent(message_text="Please Donate Us Any Amount You Like, to Support the Service."),
     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("", url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ),
     thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )
     try:
-        await update.answer(results=answers, cache_time=0)
+        await update.answer(results=answer, cache_time=0)
     except QueryIdInvalid:
         pass
 

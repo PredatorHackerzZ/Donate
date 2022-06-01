@@ -98,12 +98,12 @@ async def answerX(bot, update):
     incoming = update.query
 
     if incoming == "":
-        answer.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
+        answers.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
         input_message_content=InputTextMessageContent(message_text="Please Donate Us Any Amount You Like, to Support the Service."),
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("", url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ),
         thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )
     else:
-        answer.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
+        answers.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
         input_message_content=InputTextMessageContent(message_text="Please Donate Us Any Amount You Like, to Support the Service."),
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("", url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ),
         thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )

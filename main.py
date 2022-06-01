@@ -91,20 +91,46 @@ async def filter(bot, update):
     )
 
 @Bot.on_inline_query()
-async def inline(bot, update):
+async def answer(bot, update):
+    await inline_query.answer(
+        results=[
             InlineQueryResultArticle(
                 title="This is My Donation Or Payment Bot",
                 description="You Can Donate Us Using Inline.",
                 thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
                 input_message_content=InputTextMessageContent(
-                    message_text="Please Donate Us Any Amount You Like, to Support the Service.",
-                    disable_web_page_preview=True
+                    "Please Donate Us Any Amount You Like, to Support the Service."
                 ),
-                reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("Donate Us", url="https://p.paytm.me/xCTH/n6kio0sk")]
-                ])
+                url="https://docs.pyrogram.org/intro/install",
+                description="How to install Pyrogram",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate Us",
+                            url="https://p.paytm.me/xCTH/n6kio0sk"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="Donation telegram Bot ",
+                input_message_content=InputTextMessageContent(
+                    "Donate Us ₹50"
+                ),
+                url="https://docs.pyrogram.org/start/invoking",
+                description="You Can Donate Us Using Inline",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate Us",
+                            url="https://p.paytm.me/xCTH/n6kio0sk"
+                        )]
+                    ]
+                )
             )
-
+        ],
+        cache_time=1
+    )
 @Bot.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "donateme":

@@ -91,13 +91,10 @@ async def filter(bot, update):
     )
 
 @Bot.on_inline_query()
-async def inline_handlers(_, event: InlineQuery):
-    answers = list()
-    # If Search Query is Empty
-    if event.query == "":
+async def inline(bot, update):
         answers.append(
             InlineQueryResultArticle(
-                title="That's My Donation Or Payment Bot",
+                title="This is My Donation Or Payment Bot",
                 description="You Can Donate Us Using Inline.",
                 thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
                 input_message_content=InputTextMessageContent(

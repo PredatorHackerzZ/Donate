@@ -90,6 +90,31 @@ async def filter(bot, update):
         quote=True
     )
 
+@Bot.on_inline_query()
+async def inline_handlers(_, event: InlineQuery):
+    answers = list()
+    # If Search Query is Empty
+    if event.query == "":
+        answers.append(
+            InlineQueryResultArticle(
+                title="This is Inline BotList Search Bot 🔍",
+                description="You Can Search All Bots Available On TeleGram.",
+                thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
+                input_message_content=InputTextMessageContent(
+                    message_text="A dream does not become reality through magic; it takes sweat, determination, and hard work."
+
+",
+                    disable_web_page_preview=True
+                ),
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton("Search Here", switch_inline_query_current_chat="")],
+                    [InlineKeyboardButton("TeleRoid Bots", url="https://t.me/joinchat/t1ko_FOJxhFiOThl"),
+                     InlineKeyboardButton("Bots Channel", url="https://t.me/TeleRoidGroup")],
+                    [InlineKeyboardButton("TeleGram Bots", url="https://t.me/TGRobot_List")]
+                ])
+            )
+        )
+
 @Bot.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "donateme":

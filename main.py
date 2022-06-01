@@ -92,7 +92,6 @@ async def filter(bot, update):
 
 @Bot.on_inline_query()
 async def inline(bot, update):
-        answers.append(
             InlineQueryResultArticle(
                 title="This is My Donation Or Payment Bot",
                 description="You Can Donate Us Using Inline.",
@@ -105,7 +104,6 @@ async def inline(bot, update):
                     [InlineKeyboardButton("Donate Us", url="https://p.paytm.me/xCTH/n6kio0sk")]
                 ])
             )
-        )
 
 @Bot.on_callback_query()
 async def cb_handler(bot, update):

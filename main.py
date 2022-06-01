@@ -92,41 +92,32 @@ async def filter(bot, update):
 
 @Bot.on_inline_query()
 async def answer(bot, update):
-    await inline_query.answer(
-        results=[
-            InlineQueryResultArticle(
-                title="This is My Donation Or Payment Bot",
-                description="You Can Donate Us Using Inline.",
-                thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
-                input_message_content=InputTextMessageContent(
-                    "Please Donate Us Any Amount You Like, to Support the Service."
-                ),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton(
-                            "Donate Us",
-                            url="https://p.paytm.me/xCTH/n6kio0sk"
-                        )]
-                    ]
-                )
-            ),
-            InlineQueryResultArticle(
-                title="Donation telegram Bot ",
-                input_message_content=InputTextMessageContent(
-                    "₹50 Donate Us"
-                ),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton(
-                            "Donate Us",
-                            url="https://p.paytm.me/xCTH/n6kio0sk"
-                        )]
-                    ]
-                )
-            )
-        ],
-        cache_time=1
-    )
+
+    answers = list()
+    incoming = update.query
+
+    if incoming == "":
+        answers.append(InlineQueryResultArticle(
+        title = "This is My Donation Or Payment Bot",
+        description = "You Can Donate Us Using Inline.",
+        thumb_url = "https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
+        input_message_content=InputTextMessageContent("Please Donate Us Any Amount You Like, to Support the Service.",
+        disable_web_page_preview=True), reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("Donate Us", 
+        url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ) )
+    else:
+        answers.append(InlineQueryResultArticle(
+        title = "This is My Donation Or Payment Bot",
+        description = "You Can Donate Us Using Inline.",
+        thumb_url = "https://telegra.ph/file/330bd070950b8ef775ca9.jpg", 
+        input_message_content=InputTextMessageContent("Please Donate Us Any Amount You Like, to Support the Service.",
+        disable_web_page_preview=True), reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("Donate Us", 
+        url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ) )
+
+    try:
+        await event.answer(results=answers, cache_time=0)
+    except QueryIdInvalid:
+        pass
+
 @Bot.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "donateme":

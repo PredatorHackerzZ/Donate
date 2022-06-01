@@ -91,7 +91,7 @@ async def filter(bot, update):
     )
 
 @Bot.on_inline_query()
-async def answer(bot, update):
+async def answerX(bot, update):
 
     answers = list()
     incoming = update.query

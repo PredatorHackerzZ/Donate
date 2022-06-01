@@ -4,6 +4,7 @@ import os
 import requests
 from pyrogram import Client, filters
 from requests.utils import requote_uri
+from pyrogram.errors import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InputTextMessageContent
@@ -104,6 +105,8 @@ async def answerX(bot, update):
     thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )
     try:
         await update.answer(results=answer, cache_time=0)
+    except Exception as e:
+        print(f"🚸 ERROR : {e}")
     except QueryIdInvalid:
         pass
 

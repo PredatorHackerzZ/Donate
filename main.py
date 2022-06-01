@@ -101,8 +101,6 @@ async def answer(bot, update):
                 input_message_content=InputTextMessageContent(
                     "Please Donate Us Any Amount You Like, to Support the Service."
                 ),
-                url="https://docs.pyrogram.org/intro/install",
-                description="How to install Pyrogram",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [InlineKeyboardButton(
@@ -115,10 +113,8 @@ async def answer(bot, update):
             InlineQueryResultArticle(
                 title="Donation telegram Bot ",
                 input_message_content=InputTextMessageContent(
-                    "Donate Us ₹50"
+                    "₹50 Donate Us"
                 ),
-                url="https://docs.pyrogram.org/start/invoking",
-                description="You Can Donate Us Using Inline",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [InlineKeyboardButton(

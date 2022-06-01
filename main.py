@@ -100,7 +100,7 @@ async def answerX(bot, update):
     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("", url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ),
     thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )
     try:
-        await event.answer(results=answers, cache_time=0)
+        await update.answer(results=answers, cache_time=0)
     except QueryIdInvalid:
         pass
 

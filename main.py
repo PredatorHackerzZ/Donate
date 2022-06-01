@@ -94,7 +94,7 @@ async def bots(bot, update):
 @Bot.on_inline_query()
 async def answerX(bot, update):
 
-    answers = list()
+    answers = []
     answers.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
     input_message_content=InputTextMessageContent(message_text="Please Donate Us Any Amount You Like, to Support the Service."),
     reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("", url="https://p.paytm.me/xCTH/n6kio0sk") ] ] ),

@@ -1,9 +1,7 @@
 # Developed By : Abhishek Kumar (https://telegram.me/TheTeleRoid) 
 
 import os
-import requests
 from pyrogram import Client, filters
-from requests.utils import requote_uri
 from pyrogram.errors import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup

@@ -77,7 +77,7 @@ async def start(bot, update):
 
 @Bot.on_message(filters.private & filters.command(["donate"]))
 async def donate(bot, update):
-    await update.reply_text(
+    await bot.send_message(
         text="Click the Following Button to Donate Us.",
         reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
         disable_web_page_preview=True,
@@ -86,7 +86,7 @@ async def donate(bot, update):
 
 @Bot.on_message(filters.private & filters.command(["bots"]))
 async def bots(bot, update):
-    await update.reply_text(
+    await bot.send_message(
         text="https://t.me/+t1ko_FOJxhFiOThl",
         reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
         disable_web_page_preview=True,

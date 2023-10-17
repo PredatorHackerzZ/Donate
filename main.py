@@ -1,12 +1,15 @@
-# Developed By : Abhishek Kumar (https://telegram.me/TheTeleRoid) 
+# Developed By : Abhishek Kumar (https://telegram.me/MrAbhi2k3) 
 
 import os
+import requests
 from pyrogram import Client, filters
+from requests.utils import requote_uri
 from pyrogram.errors import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InputTextMessageContent
-from pyrogram.types import InlineQueryResultArticle
+from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
+                            InlineKeyboardMarkup, InlineKeyboardButton)
 
 
 Bot = Client(
@@ -33,9 +36,11 @@ DONATE_BUTTONS = [
 ]
 
 DONATE_TEXT = """Hᴇʏ! {}
-Yᴏᴜ Cᴀɴ Dᴏɴᴀᴛᴇ Uꜱ Uꜱɪɴɢ UPI.
+Yᴏᴜ Cᴀɴ Dᴏɴᴀᴛᴇ Uꜱ Uꜱɪɴɢ UPI [India].
 
-PayTm/PhonePe/GooglePay - `sk7062563@okhdfcbank`
+GooglePay - `sk7062563@okhdfcbank`
+
+PayTM / PhonePe - `MrAbhi2k3@apl`
 
 Oʀ Cᴏɴᴛᴀcᴛ Uꜱ :- [ツAʙʜɪsʜᴇᴋ Kᴜᴍᴀʀ 🇮🇳](https://telegram.me/HelpLessBoi). """
 
@@ -44,11 +49,12 @@ BUTTON_TEXT = """ Click the Below Buttons To Donate Us. """
 UPI_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(" Back ", callback_data="back"),
-            InlineKeyboardButton(" PayPal ", url="https://paypal.me/AbhishekKumarIN47")
+            InlineKeyboardButton("🔙 Back ", callback_data="back"),
+            InlineKeyboardButton("💰 PayPal ", url="https://paypal.me/AbhishekKumarIN47")
         ],
         [
-            InlineKeyboardButton('Close', callback_data='close')
+            InlineKeyboardButton("🍵 Ko-Fi", url="https://ko-fi.com/Abhishekkumarin47"),
+            InlineKeyboardButton("🔒 Close", callback_data="close")
         ]
     ]
 )
@@ -56,11 +62,13 @@ UPI_BUTTONS = InlineKeyboardMarkup(
 PAY_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(" UPI ", callback_data="upidata"),
-            InlineKeyboardButton(" PayPal ", url="https://paypal.me/AbhishekKumarIN47")
+            InlineKeyboardButton("₹ UPI ", callback_data="upidata"),
+            InlineKeyboardButton("💰 PayPal ", url="https://paypal.me/AbhishekKumarIN47")
         ],
         [
-            InlineKeyboardButton('Close', callback_data='close')
+
+            InlineKeyboardButton('🔒 Close', callback_data='close')
+
         ]
     ]
 )
@@ -75,18 +83,18 @@ async def start(bot, update):
     )
 
 
-@Bot.on_message(filters.private & filters.command(["donate"]))
-async def donate(bot, update):
-    await bot.send_message(
-        text="Click the Following Button to Donate Us.",
+@Bot.on_message(filters.command(["donate"]))
+async def donate_command(bot, update):
+    await update.reply_text(
+        text=BUTTON_TEXT.format(update.from_user.mention),
         reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
         disable_web_page_preview=True,
         quote=True
     )
 
-@Bot.on_message(filters.private & filters.command(["bots"]))
-async def bots(bot, update):
-    await bot.send_message(
+@Bot.on_message(filters.command(["bots"]))
+async def bots_list(bot, update):
+    await update.reply_text(
         text="https://t.me/+t1ko_FOJxhFiOThl",
         reply_markup=InlineKeyboardMarkup([PAY_BUTTONS]),
         disable_web_page_preview=True,
@@ -94,19 +102,125 @@ async def bots(bot, update):
     )
 
 @Bot.on_inline_query()
-async def answerX(bot, update):
-
-    answer = list()
-    answer.append(InlineQueryResultArticle(title="This is My Donation Or Payment Bot", description="You Can Donate Us Using Inline.",
-    input_message_content=InputTextMessageContent(message_text="Please donate us any amount you like, to support the services."),
-    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton("Dᴏɴᴀᴛᴇ 💳", url="https://upayi.ml/sk7062563@okhdfcbank/10") ] ] ),
-    thumb_url="https://telegra.ph/file/330bd070950b8ef775ca9.jpg") )
-    try:
-        await update.answer(results=answer, cache_time=0)
-    except Exception as e:
-        print(f"🚸 ERROR : {e}")
-    except QueryIdInvalid:
-        pass
+async def answer(client, inline_query):
+    await inline_query.answer(
+        results=[
+            InlineQueryResultArticle(
+                title="UPI ₹10",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us ₹10 for this Free Service"
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish.",
+                thumb_url="https://graph.org/file/92de75471809eb6645991.jpg",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate ₹10",
+                            url="https://upayi.ml/sk7062563@okhdfcbank/10"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="UPI ₹25",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us ₹25 for this Free Service"
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate ₹25",
+                            url="https://upayi.ml/sk7062563@okhdfcbank/25"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="UPI ₹50",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us ₹50 for this Free Service"
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate ₹50",
+                            url="https://upayi.ml/sk7062563@okhdfcbank/50"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="UPI ₹100",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us ₹100 for this Free Service"
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate ₹100",
+                            url="https://upayi.ml/sk7062563@okhdfcbank/100"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="UPI ₹500",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us ₹500 for this Free Service"
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Donate ₹500",
+                            url="https://upayi.ml/sk7062563@okhdfcbank/500"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="PayPal $",
+                input_message_content=InputTextMessageContent(
+                    "This is My PayPal Account For International Donation Or Payment."
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us Some Amount as per your wish, If you want",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            " PayPal 💳",
+                            url="https://paypal.me/AbhishekKumarIN47"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="BTC 💰",
+                input_message_content=InputTextMessageContent(
+                    "You Can Donate Us BTC too for this Free Service. My BTC Account Coming Soon."
+                ),
+                url="https://github.com/PredatorHackerzZ",
+                description="Donate Us 1 BTC if You Are Rich.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Created By Owner",
+                            url="https://t.me/OwnYourBotz"
+                        )]
+                    ]
+                )
+            )
+        ],
+        cache_time=1
+    )
 
 @Bot.on_callback_query()
 async def cb_handler(bot, update):

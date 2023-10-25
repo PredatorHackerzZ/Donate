@@ -14,9 +14,9 @@ from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
 
 Bot = Client(
     "Donate",
-    bot_token = os.environ["BOT_TOKEN"],
-    api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"]
+    bot_token = os.environ["BOT_TOKEN", "5318008632:AAH8u1LhgHRbJcXo9YS9UcIuQYnX5sRHROE"],
+    api_id = int(os.environ["API_ID", "2387090"]),
+    api_hash = os.environ["API_HASH", "e9ca814a5c4fbc1c4ec93edbc8cac0af"]
 )
 
 
